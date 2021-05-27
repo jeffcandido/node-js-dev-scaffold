@@ -11,7 +11,7 @@ services:
     ports:
       - 3333:3333
       - 9229:9229
-    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+    command: ["ts-node-dev", "--inspect=0.0.0.0:9229", "--transpile-only", "--ignore-watch", "node_modules", "--respawn", "src/server.ts"]
     volumes:
       - $PWD:/home/user/app
     working_dir: /home/user/app
