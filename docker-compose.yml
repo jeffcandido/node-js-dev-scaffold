@@ -1,13 +1,12 @@
 version: '3.4'
 
 services:
-  api:
-    image: api
+  dev:
+    image: app-dev
     build:
       context: .
-      dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: development
+      dockerfile: ./docker/dev/Dockerfile
+    env_file: .env
     ports:
       - 3333:3333
       - 9229:9229
@@ -15,9 +14,9 @@ services:
       - $PWD:/home/user/app
     working_dir: /home/user/app
     networks:
-      - private_network
+      - dev_network
 networks:
-  private_network:
+  dev_network:
     driver: bridge
     ipam:
       driver: default
