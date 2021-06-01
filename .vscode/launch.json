@@ -5,10 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
-      "name": "VSCode NodeJS API Debug",
+      "type": "node",
       "request": "attach",
-      "outFiles": ["${workspaceFolder}/dist/*.js", "!**/node_modules/**"]
+      "name": "Docker: Attach to Node",
+      "remoteRoot": "/home/user/app",
+      "port": 9229,
+      "restart": true
     }
   ]
 }
